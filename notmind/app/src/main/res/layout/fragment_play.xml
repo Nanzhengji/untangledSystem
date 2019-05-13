@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_content"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/ll_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="50dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/z_add"
+                android:layout_marginTop="5dp"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/notmind"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="10dp"
+            android:text="请选择：纠结的选项有几个？"/>
+        >
+        <RadioGroup
+            android:id="@+id/rg_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            >
+            <RadioButton
+                android:id="@+id/rb_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2"/>
+            <View  android:layout_width="fill_parent" android:layout_height="1dp" android:background="@color/colorBg" />
+            <RadioButton
+                android:id="@+id/rb_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="3"/>
+            <View  android:layout_width="fill_parent" android:layout_height="1dp" android:background="@color/colorBg" />
+            <RadioButton
+                android:id="@+id/rb_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="4"/>
+            <View  android:layout_width="fill_parent" android:layout_height="1dp" android:background="@color/colorBg" />
+            <RadioButton
+                android:id="@+id/rb_five"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="5"/>
+            <View  android:layout_width="fill_parent" android:layout_height="1dp" android:background="@color/colorBg" />
+            <RadioButton
+                android:id="@+id/rb_six"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="6"/>
+            <View  android:layout_width="fill_parent" android:layout_height="1dp" android:background="@color/colorBg" />
+
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20sp">
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="确  定"
+            android:gravity="center"
+            android:background="@drawable/btn"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="100dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:id="@+id/regist"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20sp"
+        android:layout_marginLeft="10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tip"/>
+        <TextView
+            android:id="@+id/tv_show_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="点击查看 操作说明"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+

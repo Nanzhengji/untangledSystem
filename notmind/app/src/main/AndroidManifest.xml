@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.myapp">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".BeginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".personal.RegistActivity" android:label="注册"/>
+        <activity android:name=".personal.LoginActivity"/>
+        <activity android:name=".personal.HelpActivity"/>
+        <activity android:name=".personal.AddDataActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".personal.ShowDataActivity"/>
+        <activity android:name=".personal.ChangePwdActivity"/>
+        <activity android:name=".friend.AddFriendActivity"/>
+        <activity android:name=".friend.DeleteFriendActivity"/>
+        <activity android:name=".friend.ShowFriendActivity"/>
+        <activity android:name=".friend.ChangePowerActivity"/>
+        <activity android:name=".friend.FriendDataActivity"/>
+        <activity android:name=".play.TwoActivity"/>
+        <activity android:name=".play.ThreeActivity"/>
+        <activity android:name=".play.FourActivity"/>
+        <activity android:name=".play.FiveActivity"/>
+        <activity android:name=".play.SixActivity"/>
+        <activity android:name=".play.ShowHelpActivity"/>
+        <activity android:name=".play.ShowResultActivity"/>
+        <activity android:name=".zone.AddArticalActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".zone.ShowMyArticalActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".zone.DeleteArticalActivity"/>
+        <activity android:name=".zone.ArticalDataActivity"/>
+        <activity android:name=".zone.UpdateArticalActivity"/>
+        <activity android:name=".zone.ShowFriendArtivalActivity"/>
+        <activity android:name=".zone.FriendArticalDataActivity"/>
+        <activity android:name=".zone.ShowPlayActivity"/>
+        <activity android:name=".PlayActivity"/>
+        <activity android:name="FriendsActivity"/>
+        <activity android:name=".ZoneActivity" android:label="空间" />
+        <activity android:name=".personal.ChangePhotoActivity"
+            android:label="选择头像"
+            android:theme="@android:style/Theme.Dialog"
+            />
+        <activity android:name=".RecommendActivity"/>
+        <activity android:name=".RecomendInfoActivity"/>
+    </application>
+
+</manifest>

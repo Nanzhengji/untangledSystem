@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/colorBg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10sp"
+       >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/c_id"
+            android:visibility="gone"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/u_id"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/c_user"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5pt"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPurple"
+            android:text="发表人" />
+        <TextView
+            android:id="@+id/c_content"
+            android:layout_below="@id/c_user"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="5pt"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginRight="15dp"
+            android:text="发表内容" />
+        <TextView
+            android:id="@+id/tv_delete_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#ee0000"
+            android:clickable="true"
+            android:layout_alignParentRight="true"
+            android:drawableLeft="@drawable/delete"
+            android:layout_below="@id/c_content"
+            android:text="点击删除"/>
+    </RelativeLayout>
+</LinearLayout>
+
+

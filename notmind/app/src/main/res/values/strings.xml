@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">不纠结</string>
+    <string name="personal">个人中心</string>
+    <string name="friends">朋友管理</string>
+    <string name="zone">我的空间</string>
+    <string name="play">不再纠结</string>
+
+</resources>
