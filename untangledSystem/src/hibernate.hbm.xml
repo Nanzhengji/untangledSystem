@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.entities">
+    <!-- 用户表 -->
+    <class name="User" table="user">
+        <id name="id" column="id" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="user_id" column="user_id" type="string"></property>
+        <property name="password" column="password" type="string"></property>
+        <property name="user_name" column="user_name" type="string"></property>
+        <property name="sex" column="sex" type="string"></property>
+        <property name="age" column="age" type="int"></property>
+        <property name="address" column="address" type="string"></property>
+        <property name="motto" column="motto" type="string"></property>
+    </class>
+    
+ 	<!-- 纠结经历表 -->
+    <class name="Play" table="play">
+        <id name="id" column="id" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="user_id" column="user_id" type="string"></property>
+        <property name="play_title" column="play_title" type="string"></property>
+        <property name="date" column="date" type="date"></property>
+    </class>
+    <!-- 推荐表 -->
+    <class name="RecommendInfo" table="recommendinfo">
+        <id name="id" column="id" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="classify" column="classify" type="string"></property>
+        <property name="rec_title" column="rec_title" type="string"></property>
+        <property name="rec_content" column="rec_content" type="string"></property>
+    </class>
+     <!-- 文章表 -->
+    <class name="Story" table="story">
+        <id name="id" column="id" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="classify" column="classify" type="string"></property>
+        <property name="story_title" column="story_title" type="string"></property>
+        <property name="story_content" column="story_content" type="string"></property>
+        <property name="create_time" column="create_time" type="date"></property>
+    </class>
+    
+</hibernate-mapping>

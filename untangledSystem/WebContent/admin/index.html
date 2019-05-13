@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>不纠结APP后台管理系统</title>
+
+<link type="text/css" href="css/style.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body  style="background:url(images/loginbg.jpg);">
+
+<div class="top-nav" > 
+	<div class="top-nav-width clearfix"> 
+		<dl class="tnLeft"> 
+			<dd>
+				<h3><a id="a01">首页</a></h3>
+			</dd> 
+			<dd> 
+				<h3><a id="a02"  >纠结记录</a></h3> 				
+			</dd> 
+			<dd>
+				<h3><a id="a03">所有文章</a></h3>
+			</dd> 
+			<dd> 
+				<h3><a id="a04">添加文章</a></h3> 				 
+			</dd> 
+			<dd>
+				<h3><a id="a05" >今日推荐</a></h3>
+			</dd> 
+		</dl> 
+		<dl class="tnRight"> 
+			<dd class="welcome">
+				欢迎您，&nbsp;&nbsp;&nbsp;&nbsp;Admin&nbsp;&nbsp;&nbsp;&nbsp;			
+			</dd> 			
+			<dd> 
+				<h3><a id="a_logout">退出系统</a></h3> 
+			</dd> 
+		</dl> 
+	</div> 
+</div> 
+<div class="main" >
+<iframe src="" frameborder="1" width="1500" height="600"></iframe>
+</div>
+
+<script type="text/javascript">jQuery(".top-nav").slide({ type:"menu",  titCell:"dd", targetCell:"ul", delayTime:0,defaultPlay:false,returnDefault:true  });</script> 
+
+</script>
+</body>
+<script>
+	$("#a02").click(function(){
+		$("iframe").attr("src","admin/showPlay.jsp");
+	});
+	$("#a03").click(function(){
+		$("iframe").attr("src","admin/showStory.jsp");
+	});
+	$("#a04").click(function(){
+		$("iframe").attr("src","admin/addStory.jsp");
+	});
+	$("#a05").click(function(){
+		$("iframe").attr("src","admin/recommend.jsp");
+	});
+	$("#a01").click(function(){
+		$("iframe").attr("src","admin/home.jsp");
+	});
+	$("#a_logout").click( function () {
+		window.location.href='/untangledSystem/login';
+		})
+	
+</script>
+</html>
