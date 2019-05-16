@@ -62,7 +62,7 @@ public class ArticalDataActivity extends Activity {
         imgid =intent.getIntExtra("imgid",R.drawable.img01);
         init_comment(title);
 
-        a_title.setText("\t\t\t\t"+title);
+        a_title.setText("\t\t\t\t"+title.substring(4));
         a_content.setText("\t\t\t\t"+content);
         a_date.setText("ID："+user_id+"\t\t发表时间："+date);
 

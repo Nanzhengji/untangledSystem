@@ -46,8 +46,17 @@ public class AddFriendActivity extends Activity {
         @Override
         public void onClick(View view) {
             user2_id = a_fid.getText().toString();
-            Thread thread = new Thread(find);
-            thread.start();
+            if(user1_id.equals(user2_id)){
+                Toast.makeText(AddFriendActivity.this, "不能添加自己哦", Toast.LENGTH_SHORT).show();
+            }else {
+                String telRegex = "^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}$";
+                if(user2_id.matches(telRegex)) {
+                    Thread thread = new Thread(find);
+                    thread.start();
+                }else{
+                    Toast.makeText(AddFriendActivity.this, "输入的手机号格式不正确", Toast.LENGTH_SHORT).show();
+                }
+            }
         }
     }
 

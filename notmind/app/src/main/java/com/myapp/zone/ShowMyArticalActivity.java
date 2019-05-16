@@ -96,6 +96,7 @@ public class ShowMyArticalActivity extends Activity {
                         return;
                     }
                     String result = new DaoUtils().find_artical(artical.getArtical_id());
+
                     String a_title,a_content;
                     Date a_date;
 
@@ -105,7 +106,7 @@ public class ShowMyArticalActivity extends Activity {
                         a_content= artical1.getContent();
                         a_date = artical1.getArtical_date();
                         //将日期转化成yyyy-MM-dd格式
-                        SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd");
                         String  dString = formatter.format(a_date);
                         //转到显示详细信息页面
                         Intent intent = new Intent(getApplicationContext(),ArticalDataActivity.class);

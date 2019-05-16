@@ -53,7 +53,7 @@ public class ChangePowerActivity extends Activity {
                 startActivity(intent);
                 finish();
             }else{
-                Toast.makeText(ChangePowerActivity.this, "修改权限失败"+code, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChangePowerActivity.this, "修改权限失败", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -72,8 +72,13 @@ public class ChangePowerActivity extends Activity {
         @Override
         public void onClick(View view) {
             fid = et_power_fid.getText().toString();
-            Thread thread = new Thread(change);
-            thread.start();
+            String telRegex = "^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}$";
+            if(fid.matches(telRegex)) {
+                Thread thread = new Thread(change);
+                thread.start();
+            }else{
+                Toast.makeText(ChangePowerActivity.this, "输入的手机号格式不正确", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

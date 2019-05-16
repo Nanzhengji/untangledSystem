@@ -143,9 +143,18 @@ public class PlayView extends SurfaceView implements SurfaceHolder.Callback,Runn
             }
         }
     }
-
+public void playGo(){
+        mSpeed=50;
+        mSpeed-=1;
+        if(mSpeed<=0){
+            mSpeed=0;
+            isShouldEnd=false;
+        }else{
+            isShouldEnd=true;
+        }
+}
     public void playStart(){
-        mSpeed = 50;
+        mSpeed = 80;
         isShouldEnd = false;
     }
     public void playEnd(){
@@ -160,9 +169,7 @@ public class PlayView extends SurfaceView implements SurfaceHolder.Callback,Runn
         return isShouldEnd;
     }
     private void drawBg(){
-
         mCanvas.drawBitmap(mBgBitmap,null,new Rect(-20,-20,getMeasuredWidth()+mPadding,getMeasuredHeight()),null);
-
     }
     private  void drawText(float tmpAngle,float sweepAngle,String string){
         Path path = new Path();

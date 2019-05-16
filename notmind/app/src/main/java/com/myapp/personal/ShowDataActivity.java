@@ -28,7 +28,7 @@ import com.myapp.entities.User;
 
 public class ShowDataActivity extends Activity {
     public static final int SELECT_PIC = 1;
-    String user_id,name,sex,address,motto,result;
+    String uid,user_id,name,sex,address,motto,result;
     private ImageView iv_head;
     int age,imgid;
     TextView id;
@@ -52,6 +52,7 @@ public class ShowDataActivity extends Activity {
         tv_motto = findViewById(R.id.tv_motto);
         tv_age = findViewById(R.id.tv_age);
         TextView tv_add_data = findViewById(R.id.tv_add_data);
+
         //获得user_id
         final Intent intent = getIntent();
         user_id = intent.getStringExtra("user_id");
@@ -81,6 +82,12 @@ public class ShowDataActivity extends Activity {
         editor=pref.edit();
         if(editor != null){
         //说明以前查过直接显示
+            uid=pref.getString("uid","");
+            if(!user_id.equals(uid)){
+                //从数据库中查出用户数据
+                Thread thread = new Thread(findUser);
+                thread.start();
+            }else{
             name=pref.getString("user_name","佚名");
             age=pref.getInt("user_age",0);
             sex=pref.getString("user_sex","男");
@@ -92,12 +99,12 @@ public class ShowDataActivity extends Activity {
             tv_address.setText("地址：  "+address);
             tv_motto.setText("个性签名：  \n\n\t\t\t\t"+motto);
             tv_age.setText("年龄：  "+age);
+            }
         }else{
             //从数据库中查出用户数据
             Thread thread = new Thread(findUser);
             thread.start();
         }
-
 
         ButtonOnclickListener listener = new ButtonOnclickListener();
         tv_add_data.setOnClickListener(listener);
@@ -124,6 +131,7 @@ public class ShowDataActivity extends Activity {
             Gson gson = new Gson();
             user = gson.fromJson(result, User.class);
             //取出各字段，设为Text值
+            uid=user.getUser_id();
             name = user.getUser_name().equals("null")?"佚名":user.getUser_name();
             sex = user.getSex().equals("null")?"男":user.getSex();
             address = user.getAddress().equals("null")? "中国":user.getAddress();
@@ -139,6 +147,7 @@ public class ShowDataActivity extends Activity {
             //把个人信息存到SharedPreferences中长期保存
             SharedPreferences session_pref= getSharedPreferences("userdata",MODE_PRIVATE);
             SharedPreferences.Editor session_editor=session_pref.edit();
+            session_editor.putString("uid",uid);
             session_editor.putString("user_name",name);
             session_editor.putString("user_sex",sex);
             session_editor.putString("user_address",address);

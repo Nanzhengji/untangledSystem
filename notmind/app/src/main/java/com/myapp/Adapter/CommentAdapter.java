@@ -38,7 +38,7 @@ public class CommentAdapter extends ArrayAdapter {
         c_id.setText(comment.getComment_id());
         u_id.setText(comment.getUser_id());
         //将日期转化成yyyy-MM-dd格式
-        SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd");
         String  date = formatter.format(comment.getComment_date());
         c_user.setText(comment.getUser_id()+"\t\t("+date+")");
         c_content.setText(comment.getC_content());

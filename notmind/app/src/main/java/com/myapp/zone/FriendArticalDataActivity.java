@@ -54,7 +54,7 @@ public class FriendArticalDataActivity extends Activity {
         content = intent.getStringExtra("a_content");
         date = intent.getStringExtra("a_date");
 
-        a_title.setText("\t\t\t\t"+title);
+        a_title.setText("\t\t\t\t"+title.substring(4));
         a_content.setText("\t\t\t\t"+content);
         a_date.setText("ID: "+fuid+"\t\t发表时间："+date);
         String count = new DaoUtils().count_favor(title);

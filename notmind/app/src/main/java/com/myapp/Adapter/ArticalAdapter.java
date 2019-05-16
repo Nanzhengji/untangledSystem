@@ -28,7 +28,7 @@ public class ArticalAdapter extends ArrayAdapter {
         TextView a_content = view.findViewById(R.id.a_content);
         ImageView a_img = view.findViewById(R.id.a_img);
         a_img.setImageResource(artical.getImg());
-        a_title.setText(artical.getArtical_id());
+        a_title.setText(artical.getArtical_id().substring(4));
         a_content.setText(artical.getContent());
         return view;
     }

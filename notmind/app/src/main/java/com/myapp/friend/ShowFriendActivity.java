@@ -71,7 +71,6 @@ public class ShowFriendActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Friend friend = friendList.get(i);
-
                 //先判断网络状态
                 if (!checkNetwork()) {
                     Toast.makeText(getApplicationContext(), "网络无连接，请设置网络", Toast.LENGTH_LONG).show();
@@ -79,16 +78,18 @@ public class ShowFriendActivity extends Activity {
                     startActivity(intent2);
                     return;
                 }
+
                 String result = new DaoUtils().find_friend(friend.getFid());
                 String name,sex,address,motto;
                 int age;
                 try{
                     User user = new Gson().fromJson(result, User.class);
-                    name = user.getUser_name();
-                    sex = user.getSex();
-                    address = user.getAddress();
-                    motto = user.getMotto();
+                    name = user.getUser_name().equals("null")?"佚名":user.getUser_name();
+                    sex = user.getSex().equals("null")?"男":user.getSex();
+                    address = user.getAddress().equals("null")?"中国":user.getAddress();
+                    motto = user.getMotto().equals("null")?"每个人都是独一无二的存在":user.getMotto();
                     age = user.getAge();
+
                     Intent intent = new Intent(getApplicationContext(),FriendDataActivity.class);
                     intent.putExtra("user_id",user_id);
                     intent.putExtra("my_id",user_id);
@@ -128,14 +129,13 @@ public class ShowFriendActivity extends Activity {
                 //forech循环，取出每一个user,转化成friend对象的集合
                 for (User user : users) {
                     if(user.getSex().equals("男")){
-                        Friend friend = new Friend(user.getUser_id(),user.getUser_name(), R.drawable.img03);
+                        Friend friend = new Friend(user.getUser_id(),user.getUser_name().equals("null")?"佚名":user.getUser_name(), R.drawable.img03);
                         friendList.add(friend);
                     }else{
                         Friend friend = new Friend(user.getUser_id(),user.getUser_name(), R.drawable.img08);
                         friendList.add(friend);
                     }
                 }
-
             }
         }catch (Exception e){
             Log.d("syso",e.toString());

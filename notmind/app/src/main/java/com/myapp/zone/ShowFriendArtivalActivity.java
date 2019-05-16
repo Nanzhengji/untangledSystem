@@ -86,7 +86,7 @@ public class ShowFriendArtivalActivity extends Activity {
                         a_title = artical1.getArtical_id();
                         a_content= artical1.getContent();
                         a_date = artical1.getArtical_date();
-                        SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd");
                         String  date = formatter.format(a_date);
                         Intent intent = new Intent(getApplicationContext(),FriendArticalDataActivity.class);
                         intent.putExtra("user_id",user_id);

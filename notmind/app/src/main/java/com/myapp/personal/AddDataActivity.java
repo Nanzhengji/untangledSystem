@@ -107,6 +107,7 @@ public class AddDataActivity extends Activity {
                 //把个人信息存到SharedPreferences中长期保存
                 SharedPreferences session_pref= getSharedPreferences("userdata",MODE_PRIVATE);
                 SharedPreferences.Editor session_editor=session_pref.edit();
+                session_editor.putString("uid",user_id);
                 session_editor.putString("user_name",name);
                 session_editor.putString("user_sex",sex);
                 session_editor.putString("user_address",address);

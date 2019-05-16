@@ -49,7 +49,7 @@ public class DeleteFriendActivity extends Activity {
                intent.putExtra("user_id",user_id);
                startActivity(intent);
             }else{
-                Toast.makeText(DeleteFriendActivity.this, "删除失败"+code, Toast.LENGTH_SHORT).show();
+                Toast.makeText(DeleteFriendActivity.this, "删除失败", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -68,8 +68,13 @@ public class DeleteFriendActivity extends Activity {
         @Override
         public void onClick(View view) {
             fid = et_fid.getText().toString();
-            Thread thread = new Thread(delete);
-            thread.start();
+            String telRegex = "^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}$";
+            if(fid.matches(telRegex)) {
+                Thread thread = new Thread(delete);
+                thread.start();
+            } else {
+                Toast.makeText(DeleteFriendActivity.this, "输入的手机号格式不正确", Toast.LENGTH_SHORT).show();
+            }
         }
     }
     @Override

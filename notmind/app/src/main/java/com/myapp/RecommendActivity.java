@@ -1,8 +1,11 @@
 package com.myapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,12 +33,12 @@ public class RecommendActivity extends Activity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommend);
-        //获取用户的登录信息
-        pref= getSharedPreferences("userInfo",MODE_PRIVATE);
-        editor=pref.edit();
-        if(editor != null){
-            //新闻的图片放置的是该用户的头像
-            imgid = pref.getInt("imgid",R.drawable.img01);
+        //先判断网络状态
+        if (!checkNetwork()) {
+            Toast.makeText(getApplicationContext(), "网络无连接，请设置网络", Toast.LENGTH_LONG).show();
+            Intent intent2 = new Intent("android.settings.WIRELESS_SETTINGS");
+            startActivity(intent2);
+            return;
         }
         //联网获取推荐内容
         init_recommend();
@@ -74,12 +77,21 @@ public class RecommendActivity extends Activity  {
                 recommends = new Gson().fromJson(result,recommendInfoType);
                 //forech循环，取出每一个user,转化成friend对象的集合
                 for (RecommendInfo recommendInfo : recommends) {
-                    RecommendInfo recommendInfo1 =new RecommendInfo(imgid,recommendInfo.getRec_title(), recommendInfo.getRec_content());
+                    RecommendInfo recommendInfo1 =new RecommendInfo(recommendInfo.getRec_title(), recommendInfo.getRec_content());
                     recommendInfoList.add(recommendInfo1);
                 }
             }
         }catch (Exception e){
             Log.d("syso","RecommendActivity exception:"+e.toString());
         }
+    }
+    //检查网络状态
+    private boolean checkNetwork() {
+        ConnectivityManager conn = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo net = conn.getActiveNetworkInfo();
+        if (net != null && net.isConnected()) {
+            return true;
+        }
+        return false;
     }
 }

@@ -26,8 +26,7 @@ public class RecommendAdapter extends ArrayAdapter {
         View view = LayoutInflater.from(getContext()).inflate(resourceId, null);//实例化一个View对象
         TextView tv_title = view.findViewById(R.id.rec_title);//获取该布局内的文本视图
         TextView tv_content = view.findViewById(R.id.rec_content);//获取该布局内的文本视图
-        ImageView recommend_iv = view.findViewById(R.id.recommend_iv);
-        recommend_iv.setImageResource(recommendInfo.getImgid());
+
         tv_title.setText(recommendInfo.getRec_title());
         tv_content.setText(recommendInfo.getRec_content());
         return view;

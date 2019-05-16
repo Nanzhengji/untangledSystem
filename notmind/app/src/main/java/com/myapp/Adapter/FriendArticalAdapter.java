@@ -34,9 +34,9 @@ public class FriendArticalAdapter extends ArrayAdapter {
         a_img.setImageResource(artical.getImg());
 
         a_uid.setText(artical.getUser_name()+"\t("+artical.getUser_id()+")");
-        a_atitle.setText(artical.getArtical_id());
+        a_atitle.setText(artical.getArtical_id().substring(4));
 
-        SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd");
         String  date = formatter.format(artical.getA_date());
         a_date.setText(date);
         return view;

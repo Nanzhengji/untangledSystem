@@ -12,19 +12,15 @@ import static android.graphics.Canvas.ALL_SAVE_FLAG;
 
 public class CodeUtils {
     private static final char[] CHARS = {
-            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
     };
     private static CodeUtils mCodeUtils;
     private int mPaddingLeft, mPaddingTop;
     private StringBuilder mBuilder = new StringBuilder();
     private Random mRandom = new Random();
     //默认设置
-    private static final int DEFAULT_CODE_LENGTH = 6;//验证码的长度  这里是6位
-    private static final int DEFAULT_FONT_SIZE = 18;//字体大小
+    private static final int DEFAULT_CODE_LENGTH = 4;//验证码的长度  这里是6位
+    private static final int DEFAULT_FONT_SIZE = 24;//字体大小
     private static final int DEFAULT_LINE_NUMBER = 5;//多少条干扰线
     private static final int BASE_PADDING_LEFT = 5; //左边距
     private static final int RANGE_PADDING_LEFT = 20;//左边距范围值

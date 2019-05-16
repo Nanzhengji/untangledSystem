@@ -40,16 +40,20 @@ public class ShowResultActivity extends Activity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(!playView.isStart()){
-                    playView.playStart();
+                    playView.playGo();
+                    //不判断，直接调用一个方法，自动停止
+                   // playView.playStart();
 
                     //换张图片(图片上有指针，有文字)
-                    btn.setImageResource(R.drawable.stop);
+                    //btn.setImageResource(R.drawable.stop);
                 }else{
                     if(! playView.isShouldEnd()){
-                        playView.playEnd();
+                        playView.playGo();
+                        //playView.playEnd();
                         //换张图片
-                        btn.setImageResource(R.drawable.node);
+                       // btn.setImageResource(R.drawable.node);
                     }
                 }
             }

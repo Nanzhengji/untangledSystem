@@ -53,7 +53,10 @@ public class AddArticalActivity extends Activity {
                     Toast.makeText(getApplicationContext(),"输入不能为空",Toast.LENGTH_SHORT).show();
                 }else {
                     try{
+                        //暂定artical_id为账号的后四位和title
+                        title=user_id.substring(7)+title;
                         code = new DaoUtils().add_artical(user_id, title, content);
+
                     }catch(Exception e){
                         Log.d("syso","AddArticalActivity exception"+e.toString());
                     }

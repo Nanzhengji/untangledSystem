@@ -41,7 +41,7 @@ public class UpdateArticalActivity extends Activity {
         a_content = intent.getStringExtra("a_content");
 
         tv_title = findViewById(R.id.update_title);
-        tv_title.setText("主题：\t\t\t\t"+artical_id);
+        tv_title.setText("主题：\t\t\t\t"+artical_id.substring(4));
         et_content = findViewById(R.id.update_content);
         et_content.setText(a_content);
         Button btn_update = findViewById(R.id.update);
@@ -64,7 +64,7 @@ public class UpdateArticalActivity extends Activity {
                             a_content= artical1.getContent();
                             a_date = artical1.getArtical_date();
                             //将日期转化成yyyy-MM-dd格式
-                            SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                            SimpleDateFormat formatter  = new SimpleDateFormat("yyyy-MM-dd");
                             String  dString = formatter.format(a_date);
                             //修改成功，到显示动态的页面
                             Intent intent = new Intent(getApplicationContext(),ArticalDataActivity.class);
